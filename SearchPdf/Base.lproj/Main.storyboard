@@ -17,38 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ejb-5K-KEt">
+                                <rect key="frame" x="87" y="308" width="240" height="204"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lk5-DH-BOC">
-                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
+                                <rect key="frame" x="0.0" y="81" width="414" height="781"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pli-Sc-MWS">
-                                <rect key="frame" x="285" y="32" width="109" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="109" id="6vF-k1-SgE"/>
-                                    <constraint firstAttribute="height" constant="50" id="lXR-Vc-Jn0"/>
-                                </constraints>
+                                <rect key="frame" x="326" y="29" width="68" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" image="magnifyingglass" catalog="system"/>
                                 <connections>
-                                    <segue destination="yje-h5-406" kind="show" id="Koq-bC-jvm"/>
+                                    <action selector="searchbtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O4f-c5-zrS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lk5-DH-BOC" firstAttribute="top" secondItem="pli-Sc-MWS" secondAttribute="bottom" constant="8" symbolic="YES" id="1Ut-Cb-DOU"/>
-                            <constraint firstItem="pli-Sc-MWS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="285" id="780-IV-9kt"/>
-                            <constraint firstItem="lk5-DH-BOC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="C1E-Kq-rLB"/>
-                            <constraint firstItem="lk5-DH-BOC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MaJ-0c-ZtH"/>
-                            <constraint firstItem="lk5-DH-BOC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="SsX-O4-Uyx"/>
-                            <constraint firstItem="pli-Sc-MWS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="32" id="m8L-Wl-XGw"/>
-                            <constraint firstItem="lk5-DH-BOC" firstAttribute="top" secondItem="pli-Sc-MWS" secondAttribute="bottom" constant="8" symbolic="YES" id="uTM-QY-0pX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pli-Sc-MWS" secondAttribute="trailing" constant="20" id="wxG-UE-PsM"/>
+                            <constraint firstItem="lk5-DH-BOC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0C7-kA-YOz"/>
+                            <constraint firstItem="lk5-DH-BOC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9UT-AS-HGX"/>
+                            <constraint firstItem="lk5-DH-BOC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="81" id="ATd-uz-xno"/>
+                            <constraint firstItem="pli-Sc-MWS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="29" id="J0x-Wu-5YN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pli-Sc-MWS" secondAttribute="trailing" constant="20" id="KnB-Qg-xfj"/>
+                            <constraint firstItem="lk5-DH-BOC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RNO-rU-ocF"/>
+                            <constraint firstItem="pli-Sc-MWS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="326" id="UTg-aH-p0Z"/>
+                            <constraint firstItem="lk5-DH-BOC" firstAttribute="top" secondItem="pli-Sc-MWS" secondAttribute="bottom" constant="8" id="vpx-84-KCx"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mypdfview" destination="lk5-DH-BOC" id="aMT-Lt-ADO"/>
+                        <outlet property="mypdfView" destination="lk5-DH-BOC" id="Hn9-cS-HpI"/>
+                        <outlet property="seravh" destination="pli-Sc-MWS" id="lTP-3G-aVR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,44 +59,54 @@
         <!--Search View Controller-->
         <scene sceneID="TIT-rC-6ig">
             <objects>
-                <viewController id="yje-h5-406" customClass="SearchViewController" customModule="SearchPdf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tcer" id="yje-h5-406" customClass="SearchViewController" customModule="SearchPdf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="efv-kQ-ifL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="INP-TE-Rmh">
-                                <rect key="frame" x="0.0" y="57" width="414" height="751"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yje-h5-406" id="VfM-dj-P0n"/>
                                     <outlet property="delegate" destination="yje-h5-406" id="FIZ-EO-AEM"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ip0-Uc-ggb">
-                                <rect key="frame" x="0.0" y="13" width="414" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tu0-IW-pFq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="INP-TE-Rmh" firstAttribute="trailing" secondItem="Tu0-IW-pFq" secondAttribute="trailing" id="MFs-gK-9Xg"/>
-                            <constraint firstItem="ip0-Uc-ggb" firstAttribute="leading" secondItem="Tu0-IW-pFq" secondAttribute="leading" id="Qje-GO-JNr"/>
-                            <constraint firstItem="INP-TE-Rmh" firstAttribute="top" secondItem="ip0-Uc-ggb" secondAttribute="bottom" id="ZQ1-Lm-qbX"/>
                             <constraint firstItem="INP-TE-Rmh" firstAttribute="bottom" secondItem="Tu0-IW-pFq" secondAttribute="bottom" id="lMB-rh-pKa"/>
-                            <constraint firstItem="ip0-Uc-ggb" firstAttribute="trailing" secondItem="Tu0-IW-pFq" secondAttribute="trailing" id="rZL-3e-cPy"/>
-                            <constraint firstItem="ip0-Uc-ggb" firstAttribute="top" secondItem="Tu0-IW-pFq" secondAttribute="top" constant="13" id="sIE-lL-5rm"/>
-                            <constraint firstItem="INP-TE-Rmh" firstAttribute="top" secondItem="Tu0-IW-pFq" secondAttribute="top" constant="57" id="vg9-bx-pcD"/>
+                            <constraint firstItem="INP-TE-Rmh" firstAttribute="top" secondItem="Tu0-IW-pFq" secondAttribute="top" id="vg9-bx-pcD"/>
                             <constraint firstItem="INP-TE-Rmh" firstAttribute="leading" secondItem="Tu0-IW-pFq" secondAttribute="leading" id="y75-6S-Mvo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hbL-R5-xaJ"/>
                     <connections>
                         <outlet property="mytableview" destination="INP-TE-Rmh" id="u6g-7J-2hW"/>
-                        <outlet property="searchfeild" destination="ip0-Uc-ggb" id="8Kx-hV-PoD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynq-Rp-tYM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915.9420289855075" y="63.616071428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AOs-oc-dCa">
+            <objects>
+                <navigationController storyboardIdentifier="SearchViewController" automaticallyAdjustsScrollViewInsets="NO" id="QBZ-uF-4Mn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="s5K-Qs-SFU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KWM-c8-kdj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yje-h5-406" kind="relationship" relationship="rootViewController" id="TJG-GA-sZU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jhl-Wo-Dk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.7971014492755" y="63.616071428571423"/>
         </scene>

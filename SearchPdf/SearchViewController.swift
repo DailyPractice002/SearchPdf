@@ -7,26 +7,48 @@
 
 import UIKit
 import PDFKit
+
+protocol SearchViewControllerDelegate: class {
+    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection)
+}
+
+ 
 class SearchViewController: UIViewController , UISearchBarDelegate, PDFDocumentDelegate,UITableViewDelegate,UITableViewDataSource{
-    weak var delegate: SearchViewControllerDelegate?
     var pdfDocument: PDFDocument?
+    weak var delegate: SearchViewControllerDelegate?
+    var searchBar = UISearchBar()
+    
     @IBOutlet weak var mytableview:UITableView!
-    @IBOutlet weak var searchfeild:UISearchBar!
+    deinit {
+        pdfDocument?.cancelFindString()
+        pdfDocument?.delegate = nil
+    }
+
     
     var searchResults = [PDFSelection]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
+        searchBar.searchBarStyle = .minimal
+        navigationItem.titleView = searchBar
+//        let path = Bundle.main.path(forResource: "c1", ofType: "pdf")
+//       let url   = URL(fileURLWithPath: path!)
+//        pdfDocument = PDFDocument(url: url)
+       
+     
+       
         mytableview.rowHeight = 88
         mytableview.register(UINib(nibName: String(describing: SearchTableViewCell.self), bundle: nil), forCellReuseIdentifier: "Cell")
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchfeild.becomeFirstResponder()
+        searchBar.becomeFirstResponder()
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchfeild.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -85,16 +107,11 @@ class SearchViewController: UIViewController , UISearchBarDelegate, PDFDocumentD
 
       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selection = searchResults[indexPath.row]
-        searchfeild.resignFirstResponder()
+        searchBar.resignFirstResponder()
         delegate?.searchViewController(self, didSelectSearchResult: selection)
         tableView.deselectRow(at: indexPath, animated: true)
         dismiss(animated: true, completion: nil)
     }
 }
 
-protocol SearchViewControllerDelegate: class {
-    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection)
-}
-
- 
  
